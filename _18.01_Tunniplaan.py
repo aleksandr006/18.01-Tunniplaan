@@ -1,11 +1,11 @@
 from tkinter import*
-root=Tk()
+root=Tk()#создаёт окно
 root.title("tunni plan")
 root.geometry("1800x1000+100+100")
 root.resizable(width=False, height=False)
  
-def Eestikeel():
-  label.configure(text="Eesti keel - õpetaja: Ojamäe Olesja B 234",font="Arial 20")
+def Eestikeel():#функция 
+  label.configure(text="Eesti keel - õpetaja: Ojamäe Olesja B 234",font="Arial 20")#при нажатие на предмет в расписание он будет показывать учителя и кабинет
 def Logistika():
   label.configure(text="Logistika - õpetaja: Klimanskaja Inessa B 002",font="Arial 20")
 def Matematika():
@@ -24,7 +24,7 @@ def kehaline():
   label.configure(text="Kehaline Kasvatus - õpetaja: Maksõmiv Maksim Võimla A",font="Arial 20")
 def Rakendus():
   label.configure(text="Rakendus- õpetaja: Merkulova Irina E 10",font="Arial 20")
-label = Label(root)
+label = Button(root,bg="#199cb0")
 label.place(x=700, y=600)
 
 #левые колонки
@@ -55,12 +55,12 @@ Button(text="Keel ja kirjandus",relief=RIDGE,font="Arial 18",width=15,height=3,b
 #вторник
 Button(text="Tugiõpe",relief=RIDGE,font="Arial 18",width=15,height=3,bg="#990b8b",).grid(row=2,column=2,sticky=W+E+N+S)
 Button(text="Programmeerimine",relief=RIDGE,font="Arial 18",width=40,height=3,bg="#199cb0",command=programeriumine).grid(row=2,column=3,columnspan=3,sticky=W+E+N+S)
-Button(text="           ",font="Arial 18",width=15,height=3).grid(row=2,column=6,sticky=W+E+N+S)
+Button(text="           ",font="Arial 18",width=15,height=3).grid(row=2,column=6)
 Button(text="Füüsika",relief=RIDGE,font="Arial 18",width=30,height=3,bg="#de52d0",command=Matematika).grid(row=2,column=7,columnspan=2,sticky=W+E+N+S)
 #среда
 Button(text=" Tugiõpe",relief=RIDGE,font="Arial 18",width=15,height=3,bg="#de52d0").grid(row=3,column=2,sticky=W+E+N+S)
 Button(text="Kunst",relief=RIDGE,font="Arial 18",width=20,height=3,bg="#990b8b",command=Kunst).grid(row=3,column=3,columnspan=2,sticky=W+E+N+S)
-Button(text="           ",font="Arial 18",width=15,height=3).grid(row=3,column=5,sticky=W+E+N+S)
+Button(text="           ",font="Arial 18",width=15,height=3).grid(row=3,column=5)
 Button(text="Kehaline kasvatus",relief=RIDGE,font="Arial 18",width=30,height=3,bg="#990b8b",command=kehaline).grid(row=3,column=6,columnspan=2,sticky=W+E+N+S)
 #четверг
 Button(text="Logistika",relief=RIDGE,font="Arial 18",width=15,height=3,bg="#2aa118",command=Logistika).grid(row=4,column=2,columnspan=2,sticky=W+E+N+S)
