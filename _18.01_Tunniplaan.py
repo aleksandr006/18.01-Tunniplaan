@@ -1,10 +1,10 @@
 from tkinter import*
 root=Tk()#создаёт окно
 root.title("tunni plan")
-root.geometry("1800x1000+100+100")
+root.geometry("2000x1000+100+100")
 root.resizable(width=False, height=False)
- 
-def Eestikeel():#функция 
+#функции
+def Eestikeel():
   label.configure(text="Eesti keel - õpetaja: Ojamäe Olesja B 234",font="Arial 20")#при нажатие на предмет в расписание он будет показывать учителя и кабинет
 def Logistika():
   label.configure(text="Logistika - õpetaja: Klimanskaja Inessa B 002",font="Arial 20")
@@ -26,14 +26,23 @@ def Rakendus():
   label.configure(text="Rakendus- õpetaja: Merkulova Irina E 10",font="Arial 20")
 label = Button(root,bg="#199cb0")
 label.place(x=700, y=600)
-
+def ponedel():
+     label.configure(text="* Tugiõpe \n * Logistika \n * Keel ja kirjandus",font="Arial 20")
+def vtornik():
+     label.configure(text="* Tugiõpe\n * Programmeerimine\n * füüsika",font="Arial 20")
+def sreda():
+     label.configure(text="* Tugiõpe \nKunst \n * Kehaline kasvatus",font="Arial 20")
+def tetverg():
+     label.configure(text="* Logistika\n * rakendus \n* Eesti keel",font="Arial 20")
+def patnisa():
+    label.configure(text="* rakendus\n * Programmeerimine\n * Inglise keel",font="Arial 20")
 #левые колонки
-Button(text="Расписание LogITpv21").grid(row=0,column=1)#grid это вместо pack
-Button(text="Понедельник:").grid(row=1,column=1)#grid это вертикальные столбики
-Button(text="Вторник:").grid(row=2,column=1)#column горизонтальные столбики
-Button(text="Среда:").grid(row=3,column=1)
-Button(text="Четверг:").grid(row=4,column=1)
-Button(text="Пятница:").grid(row=5,column=1)
+Label(text="Расписание LogITpv21").grid(row=0,column=1,sticky=W+E+N+S)#grid это вместо pack
+Button(text="Понедельник:",command=ponedel).grid(row=1,column=1,sticky=W+E+N+S)#grid это вертикальные столбики
+Button(text="Вторник:",command=vtornik).grid(row=2,column=1,sticky=W+E+N+S)#column горизонтальные столбики
+Button(text="Среда:",command=sreda).grid(row=3,column=1,sticky=W+E+N+S)
+Button(text="Четверг:",command=tetverg).grid(row=4,column=1,sticky=W+E+N+S)
+Button(text="Пятница:",command=patnisa).grid(row=5,column=1,sticky=W+E+N+S)
 #верхние колонки
 Button(text="1").grid(row=0,column=2)           
 Button(text="2").grid(row=0,column=3)
@@ -48,7 +57,7 @@ Button(text="10").grid(row=0,column=11)
 #понедельник
 Button(text=" Tugiõpe",relief=RIDGE,font="Arial 18",width=15,height=3,bg="#4f4f4a").grid(row=1,column=2,sticky=W+E+N+S)# columnspan это объединение колонок
 Button(text="Logistika",relief=RIDGE,font="Arial 18",width=20,height=3,bg="#2aa118",command=Logistika).grid(row=1,column=3,columnspan=2,sticky=W+E+N+S)#width отвечает за ширину
-Button(text="Matemaatika",relief=RIDGE,font="Arial 18",width=30,height=3,bg="#de52d0",command=Matematika).grid(row=1,column=5,columnspan=2,sticky=W+E+N+S)#height отвечает за высоту
+Button(text="Logistika",relief=RIDGE,font="Arial 18",width=30,height=3,bg="#de52d0",command=Matematika).grid(row=1,column=5,columnspan=2,sticky=W+E+N+S)#height отвечает за высоту
 Button(text="           ",font="Arial 18",width=15,height=3).grid(row=1,column=7)#пустой текст это перерыв
 Button(text="Keel ja kirjandus",relief=RIDGE,font="Arial 18",width=15,height=3,bg="#0eeb19",command=Venekell).grid(row=1,column=8,sticky=W+E+N+S)
 Button(text="Keel ja kirjandus",relief=RIDGE,font="Arial 18",width=15,height=3,bg="#0eeb19",command=Venekell).grid(row=1,column=9,sticky=W+E+N+S)
@@ -56,7 +65,7 @@ Button(text="Keel ja kirjandus",relief=RIDGE,font="Arial 18",width=15,height=3,b
 Button(text="Tugiõpe",relief=RIDGE,font="Arial 18",width=15,height=3,bg="#990b8b",).grid(row=2,column=2,sticky=W+E+N+S)
 Button(text="Programmeerimine",relief=RIDGE,font="Arial 18",width=40,height=3,bg="#199cb0",command=programeriumine).grid(row=2,column=3,columnspan=3,sticky=W+E+N+S)
 Button(text="           ",font="Arial 18",width=15,height=3).grid(row=2,column=6)
-Button(text="Füüsika",relief=RIDGE,font="Arial 18",width=30,height=3,bg="#de52d0",command=Matematika).grid(row=2,column=7,columnspan=2,sticky=W+E+N+S)
+Button(text="Füüsika",relief=RIDGE,font="Arial 18",width=30,height=3,bg="#de52d0",command=Füüsika).grid(row=2,column=7,columnspan=2,sticky=W+E+N+S)
 #среда
 Button(text=" Tugiõpe",relief=RIDGE,font="Arial 18",width=15,height=3,bg="#de52d0").grid(row=3,column=2,sticky=W+E+N+S)
 Button(text="Kunst",relief=RIDGE,font="Arial 18",width=20,height=3,bg="#990b8b",command=Kunst).grid(row=3,column=3,columnspan=2,sticky=W+E+N+S)
@@ -65,7 +74,7 @@ Button(text="Kehaline kasvatus",relief=RIDGE,font="Arial 18",width=30,height=3,b
 #четверг
 Button(text="Logistika",relief=RIDGE,font="Arial 18",width=15,height=3,bg="#2aa118",command=Logistika).grid(row=4,column=2,columnspan=2,sticky=W+E+N+S)
 Button(text="           ",font="Arial 18",width=15,height=3).grid(row=4,column=4,sticky=W+E+N+S)
-Button(text="Programmeerimine",relief=RIDGE,font="Arial 18",width=35,height=3,bg="#199cb0",command=programeriumine).grid(row=4,column=5,columnspan=2,sticky=W+E+N+S)
+Button(text="Logistika",relief=RIDGE,font="Arial 18",width=35,height=3,bg="#199cb0",command=programeriumine).grid(row=4,column=5,columnspan=2,sticky=W+E+N+S)
 Button(text="rakendus",relief=RIDGE,font="Arial 18",width=30,height=3,bg="#e60e19",command=Rakendus).grid(row=4,column=7,columnspan=2,sticky=W+E+N+S)
 Button(text="Eesti keel",relief=RIDGE,font="Arial 18",width=25,height=3,bg="#4f4f4a",command=Eestikeel).grid(row=4,column=9,columnspan=2,sticky=W+E+N+S)
 #пятница
